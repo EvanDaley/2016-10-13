@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class CycleButton : MonoBehaviour {
 
+	public GameObject objectToBump;
+
 	private Text buttonText;
 	public List<ButtonMode> modes;
 	private int curMode = 0;
@@ -17,6 +19,9 @@ public class CycleButton : MonoBehaviour {
 	public void PressedButton()
 	{
 		State += 1;
+
+		if (objectToBump != null)
+			objectToBump.BroadcastMessage ("SetCycle", State, SendMessageOptions.DontRequireReceiver);
 	}
 
 	public int State
