@@ -14,7 +14,6 @@ public class NavmeshPlayer : MonoBehaviour {
 
 	public void SetCycle(int status)
 	{
-		
 		movementStatus = status;
 		UpdatePath ();
 	}
@@ -43,14 +42,30 @@ public class NavmeshPlayer : MonoBehaviour {
 	{
 		if (other.gameObject.layer == 10)
 		{
-			print ("Hit waypoitn");
-
 			Waypoint waypoint = other.GetComponent<Waypoint> ();
 			if (waypoint != null)
-				previousWaypoint = waypoint.value;
+			{
+				if(movementStatus == 1 && previousWaypoint < waypoint.value)
+					previousWaypoint = waypoint.value;
+
+				if(movementStatus == 2 && previousWaypoint > waypoint.value)
+					previousWaypoint = waypoint.value;
+			}
 			
 			UpdatePath ();
 		}
+	}
+
+	void Update()
+	{
+		// look toward position that we are shooting at
+		//FaceTarget (Vector3.zero);
+	}
+
+	void FaceTarget(Vector3 target)
+	{
+		target = new Vector3(target.x, transform.position.y, target.z);
+		transform.LookAt (target);
 	}
 }
 
