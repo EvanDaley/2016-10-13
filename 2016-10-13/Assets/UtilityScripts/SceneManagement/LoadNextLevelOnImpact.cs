@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class LoadNextLevelOnImpact : MonoBehaviour {
 
 	public int layerOfVictory = 9;
-	public int levelToLoad = 2;
+	public int levelToLoad = 3;
 
 	void OnCollisionEnter(Collision collision)
 	{
