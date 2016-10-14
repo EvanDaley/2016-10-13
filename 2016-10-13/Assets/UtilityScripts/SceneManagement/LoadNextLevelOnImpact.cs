@@ -15,6 +15,14 @@ public class LoadNextLevelOnImpact : MonoBehaviour {
 		}
 	}
 
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.layer == layerOfVictory)
+		{
+			SceneManager.LoadScene (levelToLoad);
+		}
+	}
+
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 		if (collision.gameObject.layer == layerOfVictory)
