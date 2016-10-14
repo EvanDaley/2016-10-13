@@ -10,7 +10,7 @@ public class AutomaticGunPickup : MonoBehaviour
 	void DetectObject()
 	{
 		GameObject weapon = GameObject.Instantiate (gun, transform.position, transform.rotation) as GameObject;
-		Gun gunScript = weapon.AddComponent<Gun> ();
+		Gun gunScript = weapon.GetComponent<Gun> ();
 		weaponControl.EquipRight (gunScript);
 
 		Destroy (toDestroy);

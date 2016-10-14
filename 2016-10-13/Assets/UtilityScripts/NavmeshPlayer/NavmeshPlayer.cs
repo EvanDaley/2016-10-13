@@ -61,11 +61,5 @@ public class NavmeshPlayer : MonoBehaviour {
 		// look toward position that we are shooting at
 		//FaceTarget (Vector3.zero);
 	}
-
-	void FaceTarget(Vector3 target)
-	{
-		target = new Vector3(target.x, transform.position.y, target.z);
-		transform.LookAt (target);
-	}
 }
 
